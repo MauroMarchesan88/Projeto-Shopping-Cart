@@ -169,18 +169,23 @@ body {
   left: 50%;
   top: 50%;
   z-index: 1;
-  width: 120px;
-  height: 120px;
-  margin: -76px 76px 76px -76px;
-  border: 16px solid lightgrey;
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  border-top: 16px solid blue;
-  animation: spin 2s linear infinite;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: loader 1s infinite linear;
+  @keyframes loader {to{transform: rotate(1turn)}}
 }
 
 @keyframes spin {
-
   0% { transform: rotate(0deg); }
-
   100% { transform: rotate(360deg); }
 }
